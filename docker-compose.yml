@@ -1,0 +1,25 @@
+version: "3"
+services:
+  systemd:
+    image: solita/centos-systemd:latest
+    privileged: true  
+    command: setup
+    volumes:
+      - /:/host
+  web:
+    build: .
+    container_name: rstudio-server
+    security_opt:
+      - seccomp:unconfined
+    stop_signal: SIGRTMIN+3
+    tmpfs:
+      - /run
+      - /run/lock
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    ports:
+      - "8787:8787"
+    expose:
+      - "8787"
+    depends_on:
+      - systemd      
