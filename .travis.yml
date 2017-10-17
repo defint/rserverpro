@@ -1,19 +1,18 @@
-
 sudo: required
 services:
-  - docker
-
+- docker
 before_install:
-  - curl -L https://github.com/docker/compose/releases/download/1.16.1/docker-compose-`uname -s`-`uname -m` > docker-compose
-  - chmod +x docker-compose
-  - sudo mv docker-compose /usr/local/bin
-  - docker-compose build
-
+- curl -L https://github.com/docker/compose/releases/download/1.16.1/docker-compose-`uname
+  -s`-`uname -m` > docker-compose
+- chmod +x docker-compose
+- sudo mv docker-compose /usr/local/bin
+- docker-compose build
 script:
-  - docker-compose up -d
-
+- docker-compose up -d
 deploy:
   provider: heroku
   api_key:
-    secure: XX+Gp8g3J5tADWVhH2wdMU6GDv657TgDQMfZKawJgg1zK8R9NApAvM/5SL+nB8O+qSYXxnbg4WlgLvdmh/xL+xWeYCrjfvnSqCKwrGp/mBE5dqLu4754k89Byu1evAXgeXCHmhQR/mcmlXSLpxUFUS6XjbT4KXym+h3NeavVvEcw9ergeqZCVlRS3J1dA6crZ56nXAWxWa42BYuGrhmUoKLArraQzY90Joejq363f1ctHovXaNYjP4ynBc60nPNwIzUJ4yBmtvuJSDC6+mMJxowMPDPQxlRTTXtiOA487NEmY1p6m8D/Tvag3ihRA3sPVbPcUgaAfa35ZVIabCV+qMe8zfF9Jhnl/Zulmn85IDI+TNo+8SHUmbnoKUfjpgIt83nkD9R51ByoPGDr2StWHtZnN4+ekgbFoa+WAgcB8qHVqgoxXigTphuxOQJg2hB3bWsmTmIlyMOIM+6YKWweoDh82UuM2dD9N6Am6zubav+20hsPpN1G/kmX6Uvlywvrl9fs+1BBe1nmqhBQ/Lz0fk55fK0ne3gNr70jFIEtZaUkR5pt++BaptYH3TUoMGZssHRurIcajl0OSlH/v+k8l3zESOwQGy/eSIWvqU3VtU/t/v40cRFpsKhgktMCBUdeBAvkqZFZVEIJmvTQgO4fbPT2NCFDQ8ueRrU0nQhv/r8=
+    secure: MplX4AkhpuYj1mkjMlwb0a034Dx3xSm0gFeuzxh85mCeNBBYmGvPOh0I8WZ1NVSKDmAgCA0O7W3iVdL71xMNEZkV58a9hSPMktqM7WwStjq5iBCh3dftZTR4beqPSYCegDW3oK37exrroi2Cyfc6sGWpFtTyAbpsZRoqG7X37nQo/4sbJ942rOP9hARHDguejQW9JDNaFK3SltVF8XrJ6jBFMjtWIvO/TZBeJv78pHBOZ4bDQyDjIsWHj2kxETmQWUDXhKeBNkPXYqTuv0vQ0eTH5a8LvAYKj726xpFKwVglvIHsmEHt3Vmb3Iw0GqkRdSSZBodAa/c77q8RPY1VjhaYYIS5AVN6SLBvrq2/8dplKd/bEf7BtnKbFFvlm2MRreq5ZsA33Eu6JptWtZLnA0NtZ2uPu+oOWtWPLwIX4Z/p3N9S075w+loTP33KaFVZ3TG6g5VglfDzoC51gIyy/ZYPTCvc5Y0CmqC2nWqZzuUfLJmH3tEdHinyBI5K311G915h+0NgsFds40044Fi5m83QTLHUtlScsMbFn7MZkhQXVtbNadgHs3dNxYGoS/BllC3Va8p2ArL3GtR1yvt/KTEtlf8fmwdbxGWwK4hJI0ekuc4yAWAPlH5XddbGbAoBfOt2Q95/5hOB/VcVJCZucf0zgmPrdsvcplU+zZMmvwA=
   app: dcsunity-rserver
+  on:
+    repo: defint/rserverpro
